@@ -9,11 +9,11 @@ import java.util.List;
 @Table(name= "film")
 public class Film extends BaseEntity<Integer> {
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(targetEntity = Actor.class)
     @JoinTable(name = "film_actor" , joinColumns = {@JoinColumn(name = "film_id")},inverseJoinColumns = {@JoinColumn(name = "actor_id")})
     private List<Actor> actors;
 
-    @ManyToMany(targetEntity = Actor.class,cascade = {CascadeType.ALL})
+    @ManyToMany(targetEntity = Category.class)
     @JoinTable(name = "film_category" , joinColumns = {@JoinColumn(name = "film_id")},inverseJoinColumns = {@JoinColumn(name = "category_id")})
     private List<Category> categories;
 
