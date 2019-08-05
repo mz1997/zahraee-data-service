@@ -45,6 +45,8 @@ public class InventoryController {
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<Inventory> save(@RequestBody InventoryView inventoryView){
         Inventory inventory = new Inventory();
+        inventory.setFilms(inventoryView.getFilms());
+        inventory.setStores(inventoryView.getStores());
         return inventoryService.findAll(inventoryView.getPage(),inventoryView.getSize(),inventory);
     }
 }
