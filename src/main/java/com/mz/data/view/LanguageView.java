@@ -1,22 +1,32 @@
-package com.mz.data.model;
+package com.mz.data.view;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "language")
-public class Language extends BaseEntity<Integer> {
+public class LanguageView {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "language_id" , nullable = false)
+
+    private int page;
+    private int size;
     private Integer id;
-
-    @Column(name = "name" , nullable = false)
     private String name;
-
-    @Column(name = "last_update" , nullable = false)
     private Date lUpdate;
+
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public Integer getId() {
         return id;
