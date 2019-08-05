@@ -48,7 +48,6 @@ public class CityController {
         City city = new City();
         city.setName(cityView.getName());
         city.setCountry(cityView.getCountry());
-        city.setlUpdate(cityView.getlUpdate());
         return cityService.findAll(cityView.getPage(),cityView.getSize(),city);
     }
 

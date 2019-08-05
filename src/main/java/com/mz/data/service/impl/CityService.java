@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class CityService extends GenericService<City , Integer> implements ICityService {
 
@@ -17,5 +19,11 @@ public class CityService extends GenericService<City , Integer> implements ICity
     @Override
     protected JpaRepository<City, Integer> jpaRepository() {
         return cityRepository;
+    }
+
+    @Override
+    public void save(City entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
     }
 }

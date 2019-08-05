@@ -11,7 +11,6 @@ public class CityView {
     private Integer id;
     private String name;
     private Country country;
-    private Date lUpdate;
 
 
     public int getPage() {
@@ -54,11 +53,5 @@ public class CityView {
         this.country = country;
     }
 
-    public Date getlUpdate() {
-        return lUpdate;
-    }
 
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
-    }
 }
