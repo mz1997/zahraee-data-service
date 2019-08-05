@@ -1,6 +1,8 @@
 package com.mz.data.model;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "inventory")
@@ -11,7 +13,22 @@ public class Inventory extends BaseEntity<Integer> {
     @Column(name = "inventory_id" , nullable = false)
     private Integer id;
 
-    @ManyToOne(targetEntity = Film.class)
-    @JoinColumn(name = "film_id" , nullable = false)
-    private Film film;
+    @Column(name = "last_update" , nullable = false)
+    private Date lUpdate;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Date getlUpdate() {
+        return lUpdate;
+    }
+
+    public void setlUpdate(Date lUpdate) {
+        this.lUpdate = lUpdate;
+    }
 }

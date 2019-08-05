@@ -2,7 +2,6 @@ package com.mz.data.view;
 
 import com.mz.data.model.Address;
 
-import java.util.Date;
 
 public class StoreView {
 
