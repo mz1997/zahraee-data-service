@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class AddressService extends GenericService<Address , Integer> implements IAddressService {
 
@@ -18,5 +20,17 @@ public class AddressService extends GenericService<Address , Integer> implements
     @Override
     protected JpaRepository<Address, Integer> jpaRepository() {
         return null;
+    }
+
+    @Override
+    public void save(Address entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
+    }
+
+    @Override
+    public void edit(Address entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
     }
 }

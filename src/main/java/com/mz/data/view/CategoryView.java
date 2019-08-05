@@ -8,7 +8,6 @@ public class CategoryView {
     private int size;
     private Integer id;
     private String name;
-    private Date lUpdate;
 
     public int getPage() {
         return page;
@@ -40,13 +39,5 @@ public class CategoryView {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getlUpdate() {
-        return lUpdate;
-    }
-
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
     }
 }

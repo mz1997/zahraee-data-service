@@ -8,7 +8,6 @@ public class CountryView {
     private int size;
     private Integer id;
     private String name;
-    private Date lUpdate;
 
 
 
@@ -42,13 +41,5 @@ public class CountryView {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getlUpdate() {
-        return lUpdate;
-    }
-
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
     }
 }

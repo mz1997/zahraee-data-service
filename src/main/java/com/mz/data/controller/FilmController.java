@@ -55,7 +55,6 @@ public class FilmController {
         film.setrCost(filmView.getrCost());
         film.setRating(filmView.getRating());
         film.setsFeatures(filmView.getsFeatures());
-        film.setlUpdate(filmView.getlUpdate());
         return filmService.findAll(filmView.getPage(),filmView.getSize() , film);
     }
 }

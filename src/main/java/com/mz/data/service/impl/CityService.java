@@ -26,4 +26,10 @@ public class CityService extends GenericService<City , Integer> implements ICity
         entity.setlUpdate(new Date());
         super.save(entity);
     }
+
+    @Override
+    public void edit(City entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
+    }
 }

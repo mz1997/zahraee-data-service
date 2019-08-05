@@ -48,7 +48,6 @@ public class ActorController {
         Actor actor = new Actor();
         actor.setfName(actorView.getfName());
         actor.setlName(actorView.getlName());
-        actor.setlUpdate(actorView.getlUpdate());
         return actorService.findAll(actorView.getPage(), actorView.getSize() , actor);
     }
 }

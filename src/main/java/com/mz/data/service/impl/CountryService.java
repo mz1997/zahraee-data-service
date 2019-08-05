@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class CountryService extends GenericService<Country , Integer> implements ICountryService {
 
@@ -17,5 +19,17 @@ public class CountryService extends GenericService<Country , Integer> implements
     @Override
     protected JpaRepository<Country, Integer> jpaRepository() {
         return countryRepository;
+    }
+
+    @Override
+    public void save(Country entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
+    }
+
+    @Override
+    public void edit(Country entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
     }
 }

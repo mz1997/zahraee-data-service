@@ -9,7 +9,7 @@ public class ActorView {
     private Integer id;
     private String fName;
     private String lName;
-    private Date lUpdate;
+
 
 
 
@@ -53,11 +53,4 @@ public class ActorView {
         this.lName = lName;
     }
 
-    public Date getlUpdate() {
-        return lUpdate;
-    }
-
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
-    }
 }

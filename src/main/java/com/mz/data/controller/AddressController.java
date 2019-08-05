@@ -51,7 +51,6 @@ public class AddressController {
         address.setCity(addressView.getCity());
         address.setpCode(addressView.getpCode());
         address.setPhone(addressView.getPhone());
-        address.setlUpdate(addressView.getlUpdate());
         return addressService.findAll(addressView.getPage(),addressView.getSize() , address);
 
     }

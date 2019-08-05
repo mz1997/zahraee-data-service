@@ -11,7 +11,6 @@ public class StoreView {
     private Integer id;
     private Integer manager_staff_id;
     private Address address;
-    private Date lUpdate;
 
     public int getPage() {
         return page;
@@ -51,13 +50,5 @@ public class StoreView {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Date getlUpdate() {
-        return lUpdate;
-    }
-
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class CategoryService extends GenericService<Category , Integer> implements ICategoryService {
 
@@ -17,5 +19,17 @@ public class CategoryService extends GenericService<Category , Integer> implemen
     @Override
     protected JpaRepository<Category, Integer> jpaRepository() {
         return categoryRepository;
+    }
+
+    @Override
+    public void save(Category entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
+    }
+
+    @Override
+    public void edit(Category entity) {
+        entity.setlUpdate(new Date());
+        super.save(entity);
     }
 }

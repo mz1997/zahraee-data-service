@@ -15,7 +15,6 @@ public class AddressView {
     private City city;
     private Integer pCode;
     private Integer phone;
-    private Date lUpdate;
 
 
     public int getPage() {
@@ -88,13 +87,5 @@ public class AddressView {
 
     public void setPhone(Integer phone) {
         this.phone = phone;
-    }
-
-    public Date getlUpdate() {
-        return lUpdate;
-    }
-
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
     }
 }

@@ -46,7 +46,6 @@ public class CategoryController {
     public Pagination<Category> save(@RequestBody CategoryView categoryView){
         Category category = new Category();
         category.setName(categoryView.getName());
-        category.setlUpdate(categoryView.getlUpdate());
         return categoryService.findAll(categoryView.getPage(),categoryView.getSize() , category);
     }
 }

@@ -47,7 +47,6 @@ public class StoreController {
         Store store = new Store();
         store.setManager_staff_id(storeView.getManager_staff_id());
         store.setAddress(storeView.getAddress());
-        store.setlUpdate(storeView.getlUpdate());
         return storeService.findAll(storeView.getPage(),storeView.getSize(),store);
     }
 }

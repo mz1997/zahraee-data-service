@@ -20,7 +20,6 @@ public class FilmView {
     private Double rCost;
     private String rating;
     private String sFeatures;
-    private Date lUpdate;
 
     public int getPage() {
         return page;
@@ -134,11 +133,4 @@ public class FilmView {
         this.sFeatures = sFeatures;
     }
 
-    public Date getlUpdate() {
-        return lUpdate;
-    }
-
-    public void setlUpdate(Date lUpdate) {
-        this.lUpdate = lUpdate;
-    }
 }

@@ -46,7 +46,6 @@ public class CountryController {
     public Pagination<Country> save(@RequestBody CountryView countryView){
         Country country = new Country();
         country.setName(countryView.getName());
-        country.setlUpdate(countryView.getlUpdate());
         return countryService.findAll(countryView.getPage(),countryView.getSize() , country);
     }
 
