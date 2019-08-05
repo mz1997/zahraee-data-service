@@ -1,40 +1,38 @@
-package com.mz.data.model;
+package com.mz.data.view;
 
+import com.mz.data.model.City;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "address")
-public class Address extends BaseEntity<Integer>{
+public class AddressView {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "address_id" , nullable = false)
+    private int page;
+    private int size;
     private Integer id;
-
-    @Column(name = "address" , nullable = false)
     private String address;
-
-    @Column(name = "address2")
     private String address2;
-
-    @Column(name = "district" , nullable = false)
     private String district;
-
-    @ManyToOne(targetEntity = City.class)
-    @JoinColumn(name = "city_id", nullable = false)
     private City city;
-
-    @Column(name = "postal_code")
     private Integer pCode;
-
-    @Column(name = "phone")
     private Integer phone;
-
-    @Column(name = "last_update" , nullable = false)
     private Date lUpdate;
 
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public Integer getId() {
         return id;

@@ -38,7 +38,7 @@ public class CityController {
         cityService.edit(city);
     }
 
-    @RequestMapping(value = "/getAllCountry", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllCity", method = RequestMethod.GET)
     public List<City> getAll() {
         return cityService.getAll();
     }
