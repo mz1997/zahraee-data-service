@@ -7,7 +7,6 @@ import com.mz.data.model.Pagination;
 import com.mz.data.postView.CategoryPost;
 import com.mz.data.service.interfaces.ICategoryService;
 import com.mz.data.view.CategoryView;
-import com.mz.data.view.CustomerView;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,9 +20,6 @@ import java.util.List;
 public class CategoryController {
 
 
-    @Autowired
-    private Mapper mapper;
-    YaraPerson yaraPerson  = mapper.map(tempSearch,YaraPerson.class);
 
     @Autowired
     private ICategoryService categoryService;

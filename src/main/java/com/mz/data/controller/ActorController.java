@@ -7,6 +7,7 @@ import com.mz.data.model.Pagination;
 import com.mz.data.postView.ActorPost;
 import com.mz.data.service.interfaces.IActorService;
 import com.mz.data.view.ActorView;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +22,13 @@ public class ActorController {
     @Autowired
     private IActorService actorService;
 
+    @Autowired
+    private Mapper mapper;
+
     //save:
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void save(@RequestBody ActorPost actorPost) {
-        Actor actor = new Actor();
-        actor.setfName(actorPost.getfName());
-        actor.setlName(actorPost.getlName());
+        Actor actor = mapper.map(actorPost ,Actor.class);
         if (actorPost.getId()!= null){
             throw new RuntimeException();
         }
@@ -36,10 +38,7 @@ public class ActorController {
     //edit:
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public void edit(@RequestBody ActorPost actorPost) {
-        Actor actor = new Actor();
-        actor.setId(actorPost.getId());
-        actor.setfName(actorPost.getfName());
-        actor.setlName(actorPost.getlName());
+        Actor actor = mapper.map(actorPost ,Actor.class);
         if (actorPost.getId()== null){
             throw new RuntimeException();
         }
@@ -74,9 +73,7 @@ public class ActorController {
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<Actor> save(@RequestBody ActorView actorView){
-        Actor actor = new Actor();
-        actor.setfName(actorView.getfName());
-        actor.setlName(actorView.getlName());
+        Actor actor =  mapper.map(actorView ,Actor.class);
         Page<Actor> temps = actorService.findAll(actorView.getPage(), actorView.getSize() , actor);
         List<Actor> listActors = temps.getContent();
         List<ActorLoad> list =  new ArrayList<ActorLoad>();
@@ -90,11 +87,7 @@ public class ActorController {
     //convert to loadView
     private ActorLoad convert(Actor actor)
     {
-        ActorLoad retuenValue =  new ActorLoad();
-        retuenValue.setId(actor.getId());
-        retuenValue.setfName(actor.getfName());
-        retuenValue.setlName(actor.getlName());
-        retuenValue.setlUpdate(actor.getlUpdate());
+        ActorLoad retuenValue =   mapper.map(actor ,ActorLoad.class);
         return retuenValue;
     }
 
