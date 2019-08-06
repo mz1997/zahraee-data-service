@@ -19,7 +19,7 @@ public class AddressService extends GenericService<Address , Integer> implements
 
     @Override
     protected JpaRepository<Address, Integer> jpaRepository() {
-        return null;
+        return addressRepository;
     }
 
     @Override

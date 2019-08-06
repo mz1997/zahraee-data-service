@@ -14,7 +14,7 @@ public class AddressView {
     private String district;
     private City city;
     private Integer pCode;
-    private Integer phone;
+    private Long phone;
 
 
     public int getPage() {
@@ -81,11 +81,11 @@ public class AddressView {
         this.pCode = pCode;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 }

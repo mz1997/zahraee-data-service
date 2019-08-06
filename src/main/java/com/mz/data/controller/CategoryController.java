@@ -37,7 +37,7 @@ public class CategoryController {
         categoryService.edit(category);
     }
 
-    @RequestMapping(value = "/getAllCity", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllCategory", method = RequestMethod.GET)
     public List<Category> getAll() {
         return categoryService.getAll();
     }

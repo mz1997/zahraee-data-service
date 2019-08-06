@@ -5,7 +5,6 @@ import com.mz.data.model.Pagination;
 import com.mz.data.model.Staff;
 import com.mz.data.service.interfaces.IStaffService;
 import com.mz.data.view.StaffView;
-import com.mz.data.view.StoreView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +37,7 @@ public class StaffController {
         staffService.edit(staff);
     }
 
-    @RequestMapping(value = "/getAllStore", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllStaff", method = RequestMethod.GET)
     public List<Staff> getAll() {
         return staffService.getAll();
     }

@@ -13,13 +13,13 @@ public class Address extends BaseEntity<Integer>{
     @Column(name = "address_id" , nullable = false)
     private Integer id;
 
-    @Column(name = "address" , nullable = false)
+    @Column(name = "address")
     private String address;
 
     @Column(name = "address2")
     private String address2;
 
-    @Column(name = "district" , nullable = false)
+    @Column(name = "district")
     private String district;
 
     @ManyToOne(targetEntity = City.class)
@@ -30,7 +30,7 @@ public class Address extends BaseEntity<Integer>{
     private Integer pCode;
 
     @Column(name = "phone")
-    private Integer phone;
+    private Long phone;
 
     @Column(name = "last_update" , nullable = false)
     private Date lUpdate;
@@ -84,11 +84,11 @@ public class Address extends BaseEntity<Integer>{
         this.pCode = pCode;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
