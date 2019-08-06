@@ -23,4 +23,24 @@ public class DataApplication {
         return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.regex("" + "/.*/.*")).build().pathMapping("");
     }
+
+    @Bean
+    public DozerBeanMapperFactoryBean dozer() {
+        DozerBeanMapperFactoryBean dozer = new DozerBeanMapperFactoryBean();
+        dozer.setMappingFiles(loadResources());
+        return dozer;
+    }
+
+
+
+    public Resource[] loadResources() {
+        Resource[] resources = null;
+        try {
+            resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader)
+                    .getResources("classpath*:dozer/**/*.dzr.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return resources;
+    }
 }

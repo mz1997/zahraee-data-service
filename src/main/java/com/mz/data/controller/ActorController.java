@@ -64,9 +64,9 @@ public class ActorController {
         List<Actor> listActors = new ArrayList<Actor>();
         listActors = actorService.getAll();
         List<ActorLoad> list =  new ArrayList<ActorLoad>();
-        for(Actor actor1 : listActors)
+        for(Actor actorFor : listActors)
         {
-            list.add(convert(actor1));
+            list.add(convert(actorFor));
         }
         return list;
     }
@@ -80,9 +80,9 @@ public class ActorController {
         Page<Actor> temps = actorService.findAll(actorView.getPage(), actorView.getSize() , actor);
         List<Actor> listActors = temps.getContent();
         List<ActorLoad> list =  new ArrayList<ActorLoad>();
-        for(Actor actor1 : listActors)
+        for(Actor actorFor : listActors)
         {
-            list.add(convert(actor1));
+            list.add(convert(actorFor));
         }
         return new Pagination(temps.getTotalPages(),temps.getTotalElements(),temps.getSize(),temps.getNumber(),list);
     }
@@ -91,7 +91,10 @@ public class ActorController {
     private ActorLoad convert(Actor actor)
     {
         ActorLoad retuenValue =  new ActorLoad();
+        retuenValue.setId(actor.getId());
         retuenValue.setfName(actor.getfName());
+        retuenValue.setlName(actor.getlName());
+        retuenValue.setlUpdate(actor.getlUpdate());
         return retuenValue;
     }
 
