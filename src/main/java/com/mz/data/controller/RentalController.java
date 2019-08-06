@@ -45,8 +45,10 @@ public class RentalController {
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<Rental> save(@RequestBody RentalView rentalView){
         Rental rental = new Rental();
+        rental.setRentalDate(rentalView.getRentalDate());
         rental.setInventory(rentalView.getInventory());
         rental.setCustomer(rentalView.getCustomer());
+        rental.setReturnDate(rentalView.getReturnDate());
         rental.setStaff(rentalView.getStaff());
         return rentalService.findAll(rentalView.getPage(),rentalView.getSize(),rental);
     }

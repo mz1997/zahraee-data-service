@@ -4,14 +4,34 @@ import com.mz.data.model.Customer;
 import com.mz.data.model.Inventory;
 import com.mz.data.model.Staff;
 
+import java.util.Date;
+
 public class RentalView {
 
     private int page;
     private int size;
     private Integer id;
+    private Date rentalDate;
     private Inventory inventory;
     private Customer customer;
+    private Date returnDate;
     private Staff staff;
+
+    public Date getRentalDate() {
+        return rentalDate;
+    }
+
+    public void setRentalDate(Date rentalDate) {
+        this.rentalDate = rentalDate;
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
 
     public int getPage() {
         return page;

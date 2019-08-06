@@ -1,10 +1,9 @@
 package com.mz.data.service.impl;
 
-
-import com.mz.data.dao.RentalRepository;
-import com.mz.data.model.Rental;
+import com.mz.data.dao.PaymentRepository;
+import com.mz.data.model.Payment;
 import com.mz.data.service.GenericService;
-import com.mz.data.service.interfaces.IRentalService;
+import com.mz.data.service.interfaces.IPaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -12,24 +11,24 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
-public class RentalService extends GenericService<Rental,Integer> implements IRentalService {
+public class PaymentService extends GenericService<Payment,Integer> implements IPaymentService {
 
     @Autowired
-    private RentalRepository rentalRepository;
+    private PaymentRepository paymentRepository;
 
     @Override
-    protected JpaRepository<Rental, Integer> jpaRepository() {
-        return rentalRepository;
+    protected JpaRepository<Payment, Integer> jpaRepository() {
+        return paymentRepository;
     }
 
     @Override
-    public void save(Rental entity) {
+    public void save(Payment entity) {
         entity.setlUpdate(new Date());
         super.save(entity);
     }
 
     @Override
-    public void edit(Rental entity) {
+    public void edit(Payment entity) {
         entity.setlUpdate(new Date());
         super.save(entity);
     }
