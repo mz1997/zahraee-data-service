@@ -1,12 +1,10 @@
-package com.mz.data.view;
+package com.mz.data.postView;
 
 import com.mz.data.model.City;
 
+public class AddressPost {
 
-public class AddressView {
 
-    private int page;
-    private int size;
     private Integer id;
     private String address;
     private String address2;
@@ -14,23 +12,6 @@ public class AddressView {
     private City city;
     private Integer pCode;
     private Long phone;
-
-
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     public Integer getId() {
         return id;

@@ -3,6 +3,7 @@ package com.mz.data.controller;
 
 import com.mz.data.model.Address;
 import com.mz.data.model.Pagination;
+import com.mz.data.postView.AddressPost;
 import com.mz.data.service.interfaces.IAddressService;
 import com.mz.data.view.AddressView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,17 @@ public class AddressController {
     private IAddressService addressService;
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void save(@RequestBody Address address) {
+    public void save(@RequestBody AddressPost addressPost) {
+        Address address = new Address();
+        address.setAddress(addressPost.getAddress());
+        address.setAddress2(addressPost.getAddress2());
+        address.setDistrict(addressPost.getDistrict());
+        address.setCity(addressPost.getCity());
+        address.setpCode(addressPost.getpCode());
+        address.setPhone(addressPost.getPhone());
+        if (addressPost.getId()!= null){
+            throw new RuntimeException();
+        }
         addressService.save(address);
     }
 

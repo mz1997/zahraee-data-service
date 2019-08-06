@@ -50,9 +50,7 @@ public abstract class GenericService<T extends BaseEntity<PK>, PK extends Serial
     }
 
     @Override
-    public <S extends T> Pagination<T> findAll (int page, int size, S example){
-
-        Page<T> temp = jpaRepository().findAll(getExample(example), new PageRequest(page, size));
-        return new Pagination(temp.getTotalPages(), (int) temp.getTotalElements(),temp.getSize(),temp.getNumber(),temp.getContent());
+    public <S extends T> Page<T> findAll (int page, int size, S example){
+        return jpaRepository().findAll(getExample(example), new PageRequest(page, size));
     }
 }

@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 
-public class Pagination<T extends BaseEntity> {
+public class Pagination<T> {
 
 
-    public Pagination(Integer totalPages,Integer totalElements ,Integer size ,Integer number ,List<T> content){
+    public Pagination(Integer totalPages,Long totalElements ,Integer size ,Integer number ,List<T> content){
         this.totalPages=totalPages;
         this.totalElements = totalElements;
         this.size = size;
@@ -19,7 +19,7 @@ public class Pagination<T extends BaseEntity> {
 
     @JsonIgnore
     private Integer totalPages;
-    private Integer totalElements;
+    private Long totalElements;
     private Integer size;
     private Integer number;
     private List<T> content;
@@ -33,11 +33,11 @@ public class Pagination<T extends BaseEntity> {
         this.totalPages = totalPages;
     }
 
-    public Integer getTotalElements() {
+    public Long getTotalElements() {
         return totalElements;
     }
 
-    public void setTotalElements(Integer totalElements) {
+    public void setTotalElements(Long totalElements) {
         this.totalElements = totalElements;
     }
 

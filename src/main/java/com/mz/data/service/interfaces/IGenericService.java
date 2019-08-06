@@ -20,5 +20,5 @@ public interface IGenericService<T extends BaseEntity<PK>, PK extends Serializab
 
     List<T> getAll();
 
-    <S extends T> Pagination<T> findAll(int page, int size, S example);
+    <S extends T> Page<T> findAll(int page, int size, S example);
 }
