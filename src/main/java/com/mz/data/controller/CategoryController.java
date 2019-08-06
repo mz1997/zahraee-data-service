@@ -24,11 +24,13 @@ public class CategoryController {
     @Autowired
     private ICategoryService categoryService;
 
+    @Autowired
+    private Mapper mapper;
+
     //save:
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void save(@RequestBody CategoryPost categoryPost) {
-        Category category = new Category();
-        category.setName(categoryPost.getName());
+        Category category = mapper.map(categoryPost ,Category.class);
         if (categoryPost.getId()!= null){
             throw new RuntimeException();
         }
@@ -38,9 +40,7 @@ public class CategoryController {
     //edit:
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public void edit(@RequestBody CategoryPost categoryPost) {
-        Category category = new Category();
-        category.setId(categoryPost.getId());
-        category.setName(categoryPost.getName());
+        Category category = mapper.map(categoryPost ,Category.class);
         if (categoryPost.getId()== null){
             throw new RuntimeException();
         }
@@ -75,9 +75,7 @@ public class CategoryController {
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<Category> save(@RequestBody CategoryView categoryView){
-        Category category = new Category();
-        category.setId(categoryView.getId());
-        category.setName(categoryView.getName());
+        Category category = mapper.map(categoryView ,Category.class);
         Page<Category> temps = categoryService.findAll(categoryView.getPage(), categoryView.getSize() , category);
         List<Category> listCategory = temps.getContent();
         List<CategoryLoad> list =  new ArrayList<CategoryLoad>();
@@ -91,10 +89,7 @@ public class CategoryController {
     //convert to loadView
     private CategoryLoad convert(Category category)
     {
-        CategoryLoad retuenValue =  new CategoryLoad();
-        retuenValue.setId(category.getId());
-        retuenValue.setName(category.getName());
-        retuenValue.setlUpdate(category.getlUpdate());
+        CategoryLoad retuenValue =  mapper.map(category ,CategoryLoad.class);
         return retuenValue;
     }
 }

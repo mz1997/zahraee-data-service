@@ -8,6 +8,7 @@ import com.mz.data.postView.CityPost;
 import com.mz.data.service.interfaces.ICityService;
 import com.mz.data.view.CityView;
 import com.mz.data.view.CountryView;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +23,13 @@ public class CityController {
     @Autowired
     private ICityService cityService;
 
+    @Autowired
+    private Mapper mapper;
+
     //save:
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void save(@RequestBody CityPost cityPost) {
-        City city = new City();
-        city.setName(cityPost.getName());
-        city.setCountry(cityPost.getCountry());
+        City city = mapper.map(cityPost ,City.class);
         if (cityPost.getId()!= null){
             throw new RuntimeException();
         }
@@ -37,10 +39,7 @@ public class CityController {
     //edit:
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public void edit(@RequestBody CityPost cityPost) {
-        City city = new City();
-        city.setId(cityPost.getId());
-        city.setName(cityPost.getName());
-        city.setCountry(cityPost.getCountry());
+        City city = mapper.map(cityPost ,City.class);
         if (cityPost.getId()== null){
             throw new RuntimeException();
         }
@@ -75,9 +74,7 @@ public class CityController {
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<City> save(@RequestBody CityView cityView){
-        City city = new City();
-        city.setName(cityView.getName());
-        city.setCountry(cityView.getCountry());
+        City city = mapper.map(cityView ,City.class);
         Page<City> temps = cityService.findAll(cityView.getPage(), cityView.getSize() , city);
         List<City> listCity = temps.getContent();
         List<CityLoad> list =  new ArrayList<CityLoad>();
@@ -91,11 +88,7 @@ public class CityController {
     //convert to loadView
     private CityLoad convert(City city)
     {
-        CityLoad retuenValue =  new CityLoad();
-        retuenValue.setId(city.getId());
-        retuenValue.setName(city.getName());
-        retuenValue.setCountry(city.getCountry());
-        retuenValue.setlUpdate(city.getlUpdate());
+        CityLoad retuenValue =  mapper.map(city ,CityLoad.class);
         return retuenValue;
     }
 

@@ -1,10 +1,12 @@
 package com.mz;
 
 import org.dozer.spring.DozerBeanMapperFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -18,6 +20,9 @@ import java.io.IOException;
 @SpringBootApplication
 @EnableSwagger2
 public class DataApplication {
+
+    @Autowired
+    private ResourceLoader resourceLoader;
 
     public static void main(String[] args){
         SpringApplication.run(DataApplication.class, args);

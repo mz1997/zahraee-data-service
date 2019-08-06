@@ -7,6 +7,7 @@ import com.mz.data.model.Pagination;
 import com.mz.data.postView.AddressPost;
 import com.mz.data.service.interfaces.IAddressService;
 import com.mz.data.view.AddressView;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -20,18 +21,14 @@ public class AddressController {
 
     @Autowired
     private IAddressService addressService;
+    @Autowired
+    private Mapper mapper;
 
 
     //save:
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void save(@RequestBody AddressPost addressPost) {
-        Address address = new Address();
-        address.setAddress(addressPost.getAddress());
-        address.setAddress2(addressPost.getAddress2());
-        address.setDistrict(addressPost.getDistrict());
-        address.setCity(addressPost.getCity());
-        address.setpCode(addressPost.getpCode());
-        address.setPhone(addressPost.getPhone());
+        Address address = mapper.map(addressPost ,Address.class);
         if (addressPost.getId()!= null){
             throw new RuntimeException();
         }
@@ -41,14 +38,7 @@ public class AddressController {
     //edit:
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public void edit(@RequestBody AddressPost addressPost) {
-        Address address = new Address();
-        address.setId(addressPost.getId());
-        address.setAddress(addressPost.getAddress());
-        address.setAddress2(addressPost.getAddress2());
-        address.setDistrict(addressPost.getDistrict());
-        address.setCity(addressPost.getCity());
-        address.setpCode(addressPost.getpCode());
-        address.setPhone(addressPost.getPhone());
+        Address address = mapper.map(addressPost ,Address.class);
         if (addressPost.getId()== null){
             throw new RuntimeException();
         }
@@ -83,14 +73,7 @@ public class AddressController {
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<Address> search(@RequestBody AddressView addressView){
-        Address address = new Address();
-        address.setId(addressView.getId());
-        address.setAddress(addressView.getAddress());
-        address.setAddress2(addressView.getAddress2());
-        address.setDistrict(addressView.getDistrict());
-        address.setCity(addressView.getCity());
-        address.setpCode(addressView.getpCode());
-        address.setPhone(addressView.getPhone());
+        Address address = mapper.map(addressView ,Address.class);
         Page<Address> temps = addressService.findAll(addressView.getPage(), addressView.getSize() , address);
         List<Address> listAddress = temps.getContent();
         List<AddressLoad> list =  new ArrayList<AddressLoad>();
@@ -104,15 +87,7 @@ public class AddressController {
     //convert to loadView
     private AddressLoad convert(Address address)
     {
-        AddressLoad retuenValue =  new AddressLoad();
-        retuenValue.setId(address.getId());
-        retuenValue.setAddress(address.getAddress());
-        retuenValue.setAddress2(address.getAddress2());
-        retuenValue.setDistrict(address.getDistrict());
-        retuenValue.setCity(address.getCity());
-        retuenValue.setpCode(address.getpCode());
-        retuenValue.setPhone(address.getPhone());
-        retuenValue.setlUpdate(address.getlUpdate());
+        AddressLoad retuenValue =  mapper.map(address ,AddressLoad.class);
         return retuenValue;
     }
 }

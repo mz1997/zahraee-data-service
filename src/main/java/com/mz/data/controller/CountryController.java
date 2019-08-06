@@ -7,6 +7,7 @@ import com.mz.data.model.Pagination;
 import com.mz.data.postView.CountryPost;
 import com.mz.data.service.interfaces.ICountryService;
 import com.mz.data.view.CountryView;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +22,13 @@ public class CountryController {
     @Autowired
     private ICountryService countryService;
 
+    @Autowired
+    private Mapper mapper;
+
     //save:
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void save(@RequestBody CountryPost countryPost) {
-        Country country = new Country();
-        country.setName(countryPost.getName());
+        Country country = mapper.map(countryPost ,Country.class);
         if (countryPost.getId()!= null){
             throw new RuntimeException();
         }
@@ -35,9 +38,7 @@ public class CountryController {
     //edit:
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public void edit(@RequestBody CountryPost countryPost) {
-        Country country = new Country();
-        country.setId(countryPost.getId());
-        country.setName(countryPost.getName());
+        Country country = mapper.map(countryPost ,Country.class);
         if (countryPost.getId()== null){
             throw new RuntimeException();
         }
@@ -72,8 +73,7 @@ public class CountryController {
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public Pagination<Country> save(@RequestBody CountryView countryView){
-        Country country = new Country();
-        country.setName(countryView.getName());
+        Country country = mapper.map(countryView ,Country.class);
         Page<Country> temps = countryService.findAll(countryView.getPage(), countryView.getSize() , country);
         List<Country> listCountry = temps.getContent();
         List<CountryLoad> list =  new ArrayList<CountryLoad>();
@@ -87,10 +87,7 @@ public class CountryController {
     //convert to loadView
     private CountryLoad convert(Country country)
     {
-        CountryLoad retuenValue =  new CountryLoad();
-        retuenValue.setId(country.getId());
-        retuenValue.setName(country.getName());
-        retuenValue.setlUpdate(country.getlUpdate());
+        CountryLoad retuenValue =  mapper.map(country ,CountryLoad.class);
         return retuenValue;
     }
 
