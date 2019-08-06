@@ -72,7 +72,7 @@ public class CountryController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Country> save(@RequestBody CountryView countryView){
+    public Pagination<Country> search(@RequestBody CountryView countryView){
         Country country = mapper.map(countryView ,Country.class);
         Page<Country> temps = countryService.findAll(countryView.getPage(), countryView.getSize() , country);
         List<Country> listCountry = temps.getContent();

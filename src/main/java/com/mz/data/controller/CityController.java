@@ -73,7 +73,7 @@ public class CityController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<City> save(@RequestBody CityView cityView){
+    public Pagination<City> search(@RequestBody CityView cityView){
         City city = mapper.map(cityView ,City.class);
         Page<City> temps = cityService.findAll(cityView.getPage(), cityView.getSize() , city);
         List<City> listCity = temps.getContent();
