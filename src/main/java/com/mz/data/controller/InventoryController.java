@@ -1,14 +1,12 @@
 package com.mz.data.controller;
 
 
-import com.mz.data.loadView.ActorLoad;
-import com.mz.data.model.Actor;
+
+import com.mz.data.loadView.InventoryLoad;
 import com.mz.data.model.Inventory;
 import com.mz.data.model.Pagination;
-import com.mz.data.postView.ActorPost;
 import com.mz.data.postView.InventoryPost;
 import com.mz.data.service.interfaces.IInventoryService;
-import com.mz.data.view.ActorView;
 import com.mz.data.view.InventoryView;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,47 +48,47 @@ public class InventoryController {
 
     //load:
     @RequestMapping(value = "/load/{id}", method = RequestMethod.GET)
-    public ActorLoad load(@PathVariable Integer id) {
-        return convert(actorService.load(id));
+    public InventoryLoad load(@PathVariable Integer id) {
+        return convert(inventoryService.load(id));
     }
 
     //delete:
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
-        actorService.delete(id);
+        inventoryService.delete(id);
     }
 
     //get all
-    @RequestMapping(value = "/getAllActor", method = RequestMethod.GET)
-    public List<ActorLoad> getAll() {
-        List<Actor> listActors = new ArrayList<Actor>();
-        listActors = actorService.getAll();
-        List<ActorLoad> list =  new ArrayList<ActorLoad>();
-        for(Actor actorFor : listActors)
+    @RequestMapping(value = "/getAllInventory", method = RequestMethod.GET)
+    public List<InventoryLoad> getAll() {
+        List<Inventory> listInventorys = new ArrayList<Inventory>();
+        listInventorys = inventoryService.getAll();
+        List<InventoryLoad> list =  new ArrayList<InventoryLoad>();
+        for(Inventory inventoryFor : listInventorys)
         {
-            list.add(convert(actorFor));
+            list.add(convert(inventoryFor));
         }
         return list;
     }
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Actor> search (@RequestBody ActorView actorView){
-        Actor actor =  mapper.map(actorView ,Actor.class);
-        Page<Actor> temps = actorService.findAll(actorView.getPage(), actorView.getSize() , actor);
-        List<Actor> listActors = temps.getContent();
-        List<ActorLoad> list =  new ArrayList<ActorLoad>();
-        for(Actor actorFor : listActors)
+    public Pagination<Inventory> search (@RequestBody InventoryView inventoryView){
+        Inventory inventory =  mapper.map(inventoryView ,Inventory.class);
+        Page<Inventory> temps = inventoryService.findAll(inventoryView.getPage(), inventoryView.getSize() , inventory);
+        List<Inventory> listInventory = temps.getContent();
+        List<InventoryLoad> list =  new ArrayList<InventoryLoad>();
+        for(Inventory inventoryFor : listInventory)
         {
-            list.add(convert(actorFor));
+            list.add(convert(inventoryFor));
         }
         return new Pagination(temps.getTotalPages(),temps.getTotalElements(),temps.getSize(),temps.getNumber(),list);
     }
 
     //convert to loadView
-    private ActorLoad convert(Actor actor)
+    private InventoryLoad convert(Inventory inventory)
     {
-        ActorLoad retuenValue =   mapper.map(actor ,ActorLoad.class);
+        InventoryLoad retuenValue =   mapper.map(inventory ,InventoryLoad.class);
         return retuenValue;
     }
 }

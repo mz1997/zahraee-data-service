@@ -87,7 +87,7 @@ public class ActorController {
     //convert to loadView
     private ActorLoad convert(Actor actor)
     {
-        ActorLoad retuenValue =   mapper.map(actor ,ActorLoad.class);
+        ActorLoad retuenValue =  mapper.map(actor ,ActorLoad.class);
         return retuenValue;
     }
 

@@ -8,12 +8,21 @@ import java.util.Date;
 
 public class PaymentPost {
 
-
+    private Integer id;
     private Customer customer;
     private Staff staff;
     private Rental rental;
     private Double amount;
     private Date paymentDate;
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Customer getCustomer() {
         return customer;

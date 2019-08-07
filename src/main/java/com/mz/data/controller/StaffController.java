@@ -1,13 +1,18 @@
 package com.mz.data.controller;
 
 
+import com.mz.data.loadView.StaffLoad;
 import com.mz.data.model.Pagination;
 import com.mz.data.model.Staff;
+import com.mz.data.postView.StaffPost;
 import com.mz.data.service.interfaces.IStaffService;
 import com.mz.data.view.StaffView;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,44 +22,73 @@ public class StaffController {
     @Autowired
     private IStaffService staffService;
 
+    @Autowired
+    private Mapper mapper;
+
+    //save:
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public void save(@RequestBody Staff staff) {
+    public void save(@RequestBody StaffPost staffPost) {
+        Staff staff = mapper.map(staffPost ,Staff.class);
+        if (staffPost.getId()!= null){
+            throw new RuntimeException();
+        }
         staffService.save(staff);
     }
 
-    @RequestMapping(value = "/load/{id}", method = RequestMethod.GET)
-    public Staff load(@PathVariable Integer id) {
-        return staffService.load(id);
+    //edit:
+    @RequestMapping(value = "/edit", method = RequestMethod.PUT)
+    public void edit(@RequestBody StaffPost staffPost) {
+        Staff staff = mapper.map(staffPost ,Staff.class);
+        if (staffPost.getId()== null){
+            throw new RuntimeException();
+        }
+        staffService.edit(staff);
     }
 
+    //load:
+    @RequestMapping(value = "/load/{id}", method = RequestMethod.GET)
+    public StaffLoad load(@PathVariable Integer id) {
+        return convert(staffService.load(id));
+    }
+
+    //delete:
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
         staffService.delete(id);
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.PUT)
-    public void edit(@RequestBody Staff staff) {
-        staffService.edit(staff);
-    }
-
+    //get all
     @RequestMapping(value = "/getAllStaff", method = RequestMethod.GET)
-    public List<Staff> getAll() {
-        return staffService.getAll();
+    public List<StaffLoad> getAll() {
+        List<Staff> listStaffs = new ArrayList<Staff>();
+        listStaffs = staffService.getAll();
+        List<StaffLoad> list =  new ArrayList<StaffLoad>();
+        for(Staff staffFor : listStaffs)
+        {
+            list.add(convert(staffFor));
+        }
+        return list;
     }
 
+    //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Staff> save(@RequestBody StaffView staffView){
-        Staff staff = new Staff();
-        staff.setfName(staffView.getfName());
-        staff.setlName(staffView.getlName());
-        staff.setEmail(staffView.getEmail());
-        staff.setAddress(staffView.getAddress());
-        staff.setActive(staffView.getActive());
-        staff.setStore(staffView.getStore());
-        staff.setUserName(staffView.getUserName());
-        staff.setPassword(staffView.getPassword());
-        return staffService.findAll(staffView.getPage(),staffView.getSize(),staff);
+    public Pagination<Staff> search (@RequestBody StaffView staffView){
+        Staff staff =  mapper.map(staffView,Staff.class);
+        Page<Staff> temps = staffService.findAll(staffView.getPage(), staffView.getSize() , staff);
+        List<Staff> listStaffs = temps.getContent();
+        List<StaffLoad> list =  new ArrayList<StaffLoad>();
+        for(Staff staffFor : listStaffs)
+        {
+            list.add(convert(staffFor));
+        }
+        return new Pagination(temps.getTotalPages(),temps.getTotalElements(),temps.getSize(),temps.getNumber(),list);
+    }
 
+    //convert to loadView
+    private StaffLoad convert(Staff staff)
+    {
+        StaffLoad retuenValue =   mapper.map(staff ,StaffLoad.class);
+        return retuenValue;
     }
 
 }
