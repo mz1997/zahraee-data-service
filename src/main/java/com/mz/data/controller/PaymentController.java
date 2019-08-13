@@ -72,7 +72,7 @@ public class PaymentController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Payment> search (@RequestBody PaymentView paymentView){
+    public Pagination<PaymentLoad> search (@RequestBody(required = false) PaymentView paymentView){
         Payment payment =  mapper.map(paymentView ,Payment.class);
         Page<Payment> temps = paymentService.findAll(paymentView.getPage(), paymentView.getSize() , payment);
         List<Payment> listPayments = temps.getContent();

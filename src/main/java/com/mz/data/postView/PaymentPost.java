@@ -1,17 +1,14 @@
 package com.mz.data.postView;
 
-import com.mz.data.model.Customer;
-import com.mz.data.model.Rental;
-import com.mz.data.model.Staff;
 
 import java.util.Date;
 
 public class PaymentPost {
 
     private Integer id;
-    private Customer customer;
-    private Staff staff;
-    private Rental rental;
+    private Integer customerId;
+    private Integer staffId;
+    private Integer rentalId;
     private Double amount;
     private Date paymentDate;
 
@@ -24,28 +21,28 @@ public class PaymentPost {
         this.id = id;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
-    public Staff getStaff() {
-        return staff;
+    public Integer getStaffId() {
+        return staffId;
     }
 
-    public void setStaff(Staff staff) {
-        this.staff = staff;
+    public void setStaffId(Integer staffId) {
+        this.staffId = staffId;
     }
 
-    public Rental getRental() {
-        return rental;
+    public Integer getRentalId() {
+        return rentalId;
     }
 
-    public void setRental(Rental rental) {
-        this.rental = rental;
+    public void setRentalId(Integer rentalId) {
+        this.rentalId = rentalId;
     }
 
     public Double getAmount() {

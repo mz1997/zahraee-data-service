@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<mapping wildcard="true">
+		<class-a>com.mz.data.model.Payment</class-a>
+		<class-b>com.mz.data.view.PaymentView</class-b>
+		<field>
+			<a>customer.id</a>
+			<b>customerId</b>
+		</field>
+		<field>
+			<a>staff.id</a>
+			<b>staffId</b>
+		</field>
+		<field>
+			<a>rental.id</a>
+			<b>rentalId</b>
+		</field>
+	</mapping>
+</mappings>
