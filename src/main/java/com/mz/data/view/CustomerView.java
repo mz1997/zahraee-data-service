@@ -5,14 +5,14 @@ import com.mz.data.model.Store;
 
 public class CustomerView {
 
-    private int page;
-    private int size;
+    private int page=0;
+    private int size=5;
     private Integer id;
-    private Store store;
+    private Integer storeId;
     private String fName;
     private String lName;
     private String email;
-    private Address address;
+    private Integer addressId;
     private Integer active;
 
 
@@ -40,12 +40,20 @@ public class CustomerView {
         this.id = id;
     }
 
-    public Store getStore() {
-        return store;
+    public Integer getStoreId() {
+        return storeId;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
+    }
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 
     public String getfName() {
@@ -70,14 +78,6 @@ public class CustomerView {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     public Integer getActive() {

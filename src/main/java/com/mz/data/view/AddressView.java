@@ -5,8 +5,8 @@ import com.mz.data.model.City;
 
 public class AddressView {
 
-    private int page;
-    private int size;
+    private int page=0;
+    private int size=5;
     private Integer id;
     private String address;
     private String address2;

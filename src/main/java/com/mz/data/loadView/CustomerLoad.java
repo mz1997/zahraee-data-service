@@ -8,11 +8,11 @@ import java.util.Date;
 public class CustomerLoad {
 
     private Integer id;
-    private Store store;
+    private Integer storeId;
     private String fName;
     private String lName;
     private String email;
-    private Address address;
+    private Integer addressId;
     private Integer active;
     private Date lUpdate;
 
@@ -22,14 +22,6 @@ public class CustomerLoad {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
     }
 
     public String getfName() {
@@ -56,12 +48,20 @@ public class CustomerLoad {
         this.email = email;
     }
 
-    public Address getAddress() {
-        return address;
+    public Integer getStoreId() {
+        return storeId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
+    }
+
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 
     public Integer getActive() {

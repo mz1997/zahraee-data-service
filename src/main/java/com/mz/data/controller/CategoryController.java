@@ -74,7 +74,7 @@ public class CategoryController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Category> search(@RequestBody CategoryView categoryView){
+    public Pagination<CategoryLoad> search(@RequestBody(required = false) CategoryView categoryView){
         Category category = mapper.map(categoryView ,Category.class);
         Page<Category> temps = categoryService.findAll(categoryView.getPage(), categoryView.getSize() , category);
         List<Category> listCategory = temps.getContent();

@@ -72,7 +72,7 @@ public class ActorController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Actor> search (@RequestBody ActorView actorView){
+    public Pagination<ActorLoad> search (@RequestBody(required = false) ActorView actorView){
         Actor actor =  mapper.map(actorView ,Actor.class);
         Page<Actor> temps = actorService.findAll(actorView.getPage(), actorView.getSize() , actor);
         List<Actor> listActors = temps.getContent();

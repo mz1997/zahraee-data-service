@@ -6,7 +6,9 @@ public class CityPost {
 
     private Integer id;
     private String name;
-    private Country country;
+    private Integer idCountry;
+
+
 
     public Integer getId() {
         return id;
@@ -24,11 +26,12 @@ public class CityPost {
         this.name = name;
     }
 
-    public Country getCountry() {
-        return country;
+    public Integer getIdCountry() {
+        return idCountry;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setIdCountry(Integer idCountry) {
+        this.idCountry = idCountry;
     }
+
 }

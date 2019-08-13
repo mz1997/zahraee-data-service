@@ -72,7 +72,7 @@ public class AddressController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Address> search(@RequestBody AddressView addressView){
+    public Pagination<Address> search(@RequestBody(required = false) AddressView addressView){
         Address address = mapper.map(addressView ,Address.class);
         Page<Address> temps = addressService.findAll(addressView.getPage(), addressView.getSize() , address);
         List<Address> listAddress = temps.getContent();

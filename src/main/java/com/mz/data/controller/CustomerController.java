@@ -73,7 +73,7 @@ public class CustomerController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Actor> search(@RequestBody CustomerView customerView){
+    public Pagination<CustomerLoad> search(@RequestBody(required = false) CustomerView customerView){
         Customer customer =  mapper.map(customerView ,Customer.class);
         Page<Customer> temps = customerService.findAll(customerView.getPage(), customerView.getSize() , customer);
         List<Customer> listCustomers = temps.getContent();
