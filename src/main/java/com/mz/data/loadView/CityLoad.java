@@ -8,7 +8,8 @@ public class CityLoad {
 
     private Integer id;
     private String name;
-    private Country country;
+    private Integer idCountry;
+    private String nameCountry;
     private Date lUpdate;
 
     public Integer getId() {
@@ -27,12 +28,20 @@ public class CityLoad {
         this.name = name;
     }
 
-    public Country getCountry() {
-        return country;
+    public String getNameCountry() {
+        return nameCountry;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public Integer getIdCountry() {
+        return idCountry;
+    }
+
+    public void setIdCountry(Integer idCountry) {
+        this.idCountry = idCountry;
+    }
+
+    public void setNameCountry(String nameCountry) {
+        this.nameCountry = nameCountry;
     }
 
     public Date getlUpdate() {

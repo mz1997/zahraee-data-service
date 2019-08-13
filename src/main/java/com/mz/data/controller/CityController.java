@@ -8,6 +8,7 @@ import com.mz.data.postView.CityPost;
 import com.mz.data.service.interfaces.ICityService;
 import com.mz.data.view.CityView;
 import com.mz.data.view.CountryView;
+import com.sun.xml.internal.bind.v2.TODO;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -73,7 +74,7 @@ public class CityController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<City> search(@RequestBody CityView cityView){
+    public Pagination<CityLoad> search(@RequestBody(required = false) CityView cityView){
         City city = mapper.map(cityView ,City.class);
         Page<City> temps = cityService.findAll(cityView.getPage(), cityView.getSize() , city);
         List<City> listCity = temps.getContent();

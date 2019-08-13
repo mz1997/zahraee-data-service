@@ -6,12 +6,29 @@ import java.util.Date;
 
 public class CityView {
 
-    private int page;
-    private int size;
+    private int page=0;
+    private int size=5;
     private Integer id;
     private String name;
-    private Country country;
+    private Integer idCountry;
+    private String nameCountry;
 
+
+    public Integer getIdCountry() {
+        return idCountry;
+    }
+
+    public void setIdCountry(Integer idCountry) {
+        this.idCountry = idCountry;
+    }
+
+    public String getNameCountry() {
+        return nameCountry;
+    }
+
+    public void setNameCountry(String nameCountry) {
+        this.nameCountry = nameCountry;
+    }
 
     public int getPage() {
         return page;
@@ -45,13 +62,6 @@ public class CityView {
         this.name = name;
     }
 
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
 
 
 }
