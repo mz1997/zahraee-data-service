@@ -5,14 +5,14 @@ import com.mz.data.model.Language;
 
 public class FilmView {
 
-    private int page;
-    private int size;
+    private int page=0;
+    private int size=5;
     private Integer id;
     private String title;
     private String description;
     private Integer lYear;
-    private Language language;
-    private Language OriginalLanguage;
+    private Integer languageId;
+    private Integer OriginalLanguageId;
     private Integer rDuration;
     private Double rRate;
     private Integer length;
@@ -68,20 +68,20 @@ public class FilmView {
         this.lYear = lYear;
     }
 
-    public Language getLanguage() {
-        return language;
+    public Integer getLanguageId() {
+        return languageId;
     }
 
-    public void setLanguage(Language language) {
-        this.language = language;
+    public void setLanguageId(Integer languageId) {
+        this.languageId = languageId;
     }
 
-    public Language getOriginalLanguage() {
-        return OriginalLanguage;
+    public Integer getOriginalLanguageId() {
+        return OriginalLanguageId;
     }
 
-    public void setOriginalLanguage(Language originalLanguage) {
-        OriginalLanguage = originalLanguage;
+    public void setOriginalLanguageId(Integer originalLanguageId) {
+        OriginalLanguageId = originalLanguageId;
     }
 
     public Integer getrDuration() {

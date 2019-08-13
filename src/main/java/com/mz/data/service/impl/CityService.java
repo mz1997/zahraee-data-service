@@ -32,4 +32,9 @@ public class CityService extends GenericService<City , Integer> implements ICity
         entity.setlUpdate(new Date());
         super.save(entity);
     }
+
+    @Override
+    public Integer getCountByCountryId(Integer countryId) {
+        return cityRepository.getCountByCountryId(countryId);
+    }
 }

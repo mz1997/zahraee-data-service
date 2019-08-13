@@ -72,7 +72,7 @@ public class LanguageController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Language> search (@RequestBody LanguageView languageView){
+    public Pagination<LanguageLoad> search (@RequestBody(required = false) LanguageView languageView){
         Language language =  mapper.map(languageView ,Language.class);
         Page<Language> temps = languageService.findAll(languageView.getPage(), languageView.getSize() , language);
         List<Language> listLanguages = temps.getContent();

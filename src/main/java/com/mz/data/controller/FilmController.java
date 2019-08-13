@@ -77,7 +77,7 @@ public class FilmController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Film> search(@RequestBody FilmView filmView){
+    public Pagination<FilmLoad> search(@RequestBody(required = false) FilmView filmView){
         Film film =  mapper.map(filmView ,Film.class);
         Page<Film> temps = filmService.findAll(filmView.getPage(), filmView.getSize() , film);
         List<Film> listFilms = temps.getContent();

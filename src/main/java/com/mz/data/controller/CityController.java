@@ -93,4 +93,10 @@ public class CityController {
         return retuenValue;
     }
 
+    //get count of city
+    @RequestMapping(value = "/count/{id}" , method = RequestMethod.GET)
+    public Integer getCount(@PathVariable Integer id){
+        return cityService.getCountByCountryId(id);
+    }
+
 }

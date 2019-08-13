@@ -1,6 +1,8 @@
 package com.mz.data.view;
 
 
+import com.mz.data.loadView.FilmLoad;
+import com.mz.data.loadView.StoreLoad;
 import com.mz.data.model.Film;
 import com.mz.data.model.Store;
 
@@ -11,23 +13,23 @@ public class InventoryView {
     private int page;
     private int size;
     private Integer id;
-    private List<Film> films;
-    private List<Store> stores;
+    private List<FilmView> films;
+    private List<StoreView> stores;
 
-    public List<Store> getStores() {
-        return stores;
-    }
-
-    public void setStores(List<Store> stores) {
-        this.stores = stores;
-    }
-
-    public List<Film> getFilms() {
+    public List<FilmView> getFilms() {
         return films;
     }
 
-    public void setFilms(List<Film> films) {
+    public void setFilms(List<FilmView> films) {
         this.films = films;
+    }
+
+    public List<StoreView> getStores() {
+        return stores;
+    }
+
+    public void setStores(List<StoreView> stores) {
+        this.stores = stores;
     }
 
     public int getPage() {

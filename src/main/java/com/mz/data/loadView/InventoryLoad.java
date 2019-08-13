@@ -21,6 +21,7 @@ public class InventoryLoad {
         this.id = id;
     }
 
+
     public List<Film> getFilms() {
         return films;
     }

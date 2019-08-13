@@ -73,7 +73,7 @@ public class InventoryController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Inventory> search (@RequestBody InventoryView inventoryView){
+    public Pagination<InventoryLoad> search (@RequestBody(required = false) InventoryView inventoryView){
         Inventory inventory =  mapper.map(inventoryView ,Inventory.class);
         Page<Inventory> temps = inventoryService.findAll(inventoryView.getPage(), inventoryView.getSize() , inventory);
         List<Inventory> listInventory = temps.getContent();

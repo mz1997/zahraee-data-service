@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<mapping wildcard="true">
+		<class-a>com.mz.data.model.Film</class-a>
+		<class-b>com.mz.data.view.FilmView</class-b>
+		<field>
+			<a>language.id</a>
+			<b>languageId</b>
+		</field>
+		<field>
+			<a>language.id</a>
+			<b>OriginalLanguageId</b>
+		</field>
+	</mapping>
+</mappings>

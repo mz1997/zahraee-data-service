@@ -9,8 +9,8 @@ public class InventoryPost {
 
 
     private Integer id;
-    private List<Film> films;
-    private List<Store> stores;
+    private List<FilmPost> films;
+    private List<StorePost> stores;
 
     public Integer getId() {
         return id;
@@ -20,19 +20,20 @@ public class InventoryPost {
         this.id = id;
     }
 
-    public List<Film> getFilms() {
+
+    public List<FilmPost> getFilms() {
         return films;
     }
 
-    public void setFilms(List<Film> films) {
+    public void setFilms(List<FilmPost> films) {
         this.films = films;
     }
 
-    public List<Store> getStores() {
+    public List<StorePost> getStores() {
         return stores;
     }
 
-    public void setStores(List<Store> stores) {
+    public void setStores(List<StorePost> stores) {
         this.stores = stores;
     }
 }
