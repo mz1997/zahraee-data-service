@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class CustomerService extends GenericService<Customer , Integer> implements ICustomerService {
@@ -32,5 +33,10 @@ public class CustomerService extends GenericService<Customer , Integer> implemen
     public void edit(Customer entity) {
         entity.setlUpdate(new Date());
         super.edit(entity);
+    }
+
+    @Override
+    public List<Customer> listCustomer(Integer countryId) {
+        return customerRepository.listCustomer(countryId);
     }
 }

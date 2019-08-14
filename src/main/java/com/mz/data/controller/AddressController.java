@@ -90,4 +90,10 @@ public class AddressController {
         AddressLoad retuenValue =  mapper.map(address ,AddressLoad.class);
         return retuenValue;
     }
+
+    //list address haye keshvar x
+    @RequestMapping(value = "/listAddressCountry/{id}" , method = RequestMethod.GET)
+    public List<Address> listAddressCountry (@PathVariable Integer id){
+        return addressService.listAddress(id);
+    }
 }

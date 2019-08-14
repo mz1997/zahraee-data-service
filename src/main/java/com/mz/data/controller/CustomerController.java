@@ -2,7 +2,6 @@ package com.mz.data.controller;
 
 
 import com.mz.data.loadView.CustomerLoad;
-import com.mz.data.model.Actor;
 import com.mz.data.model.Customer;
 import com.mz.data.model.Pagination;
 import com.mz.data.postView.CustomerPost;
@@ -90,6 +89,12 @@ public class CustomerController {
     {
         CustomerLoad retuenValue =   mapper.map(customer ,CustomerLoad.class);
         return retuenValue;
+    }
+
+    //list customer haye keshvar x
+    @RequestMapping(value = "/listCustomerCountry/{id}" , method = RequestMethod.GET)
+    public List<Customer> listCustomerCountry (@PathVariable Integer id){
+        return customerService.listCustomer(id);
     }
 
 }
