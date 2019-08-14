@@ -1,13 +1,12 @@
 package com.mz.data.postView;
 
-import com.mz.data.model.Address;
 
 public class StorePost {
 
 
     private Integer id;
     private Integer manager_staff_id;
-    private Address address;
+    private Integer addressId;
 
     public Integer getId() {
         return id;
@@ -25,11 +24,11 @@ public class StorePost {
         this.manager_staff_id = manager_staff_id;
     }
 
-    public Address getAddress() {
-        return address;
+    public Integer getAddressId() {
+        return addressId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 }

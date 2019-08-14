@@ -1,8 +1,5 @@
 package com.mz.data.loadView;
 
-import com.mz.data.model.Customer;
-import com.mz.data.model.Inventory;
-import com.mz.data.model.Staff;
 
 import java.util.Date;
 
@@ -11,10 +8,10 @@ public class RentalLoad {
 
     private Integer id;
     private Date rentalDate;
-    private Inventory inventory;
-    private Customer customer;
+    private Integer inventoryId;
+    private Integer customerId;
+    private Integer staffId;
     private Date returnDate;
-    private Staff staff;
     private Date lUpdate;
 
     public Integer getId() {
@@ -33,20 +30,28 @@ public class RentalLoad {
         this.rentalDate = rentalDate;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public Integer getInventoryId() {
+        return inventoryId;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+    public void setInventoryId(Integer inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public Integer getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(Integer staffId) {
+        this.staffId = staffId;
     }
 
     public Date getReturnDate() {
@@ -55,14 +60,6 @@ public class RentalLoad {
 
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
-    }
-
-    public Staff getStaff() {
-        return staff;
-    }
-
-    public void setStaff(Staff staff) {
-        this.staff = staff;
     }
 
     public Date getlUpdate() {

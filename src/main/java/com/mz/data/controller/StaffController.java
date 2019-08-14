@@ -72,7 +72,7 @@ public class StaffController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Staff> search (@RequestBody StaffView staffView){
+    public Pagination<StaffLoad> search (@RequestBody(required = false) StaffView staffView){
         Staff staff =  mapper.map(staffView,Staff.class);
         Page<Staff> temps = staffService.findAll(staffView.getPage(), staffView.getSize() , staff);
         List<Staff> listStaffs = temps.getContent();

@@ -1,15 +1,14 @@
 package com.mz.data.view;
 
-import com.mz.data.model.Address;
 
 
 public class StoreView {
 
-    private int page;
-    private int size;
+    private int page=0;
+    private int size=5;
     private Integer id;
     private Integer manager_staff_id;
-    private Address address;
+    private Integer addressId;
 
     public int getPage() {
         return page;
@@ -43,11 +42,11 @@ public class StoreView {
         this.manager_staff_id = manager_staff_id;
     }
 
-    public Address getAddress() {
-        return address;
+    public Integer getAddressId() {
+        return addressId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 }

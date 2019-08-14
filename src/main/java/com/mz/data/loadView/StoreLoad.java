@@ -1,6 +1,5 @@
 package com.mz.data.loadView;
 
-import com.mz.data.model.Address;
 
 import java.util.Date;
 
@@ -9,7 +8,7 @@ public class StoreLoad {
 
     private Integer id;
     private Integer manager_staff_id;
-    private Address address;
+    private Integer addressId;
     private Date lUpdate;
 
     public Integer getId() {
@@ -28,12 +27,12 @@ public class StoreLoad {
         this.manager_staff_id = manager_staff_id;
     }
 
-    public Address getAddress() {
-        return address;
+    public Integer getAddressId() {
+        return addressId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 
     public Date getlUpdate() {

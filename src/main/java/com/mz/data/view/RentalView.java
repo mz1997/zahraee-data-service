@@ -1,21 +1,19 @@
 package com.mz.data.view;
 
-import com.mz.data.model.Customer;
-import com.mz.data.model.Inventory;
-import com.mz.data.model.Staff;
 
 import java.util.Date;
 
 public class RentalView {
 
-    private int page;
-    private int size;
+    private int page=0;
+    private int size=5;
     private Integer id;
     private Date rentalDate;
-    private Inventory inventory;
-    private Customer customer;
+    private Integer inventoryId;
+    private Integer customerId;
+    private Integer staffId;
     private Date returnDate;
-    private Staff staff;
+
 
     public Date getRentalDate() {
         return rentalDate;
@@ -57,27 +55,27 @@ public class RentalView {
         this.id = id;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public Integer getInventoryId() {
+        return inventoryId;
     }
 
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
+    public void setInventoryId(Integer inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
-    public Staff getStaff() {
-        return staff;
+    public Integer getStaffId() {
+        return staffId;
     }
 
-    public void setStaff(Staff staff) {
-        this.staff = staff;
+    public void setStaffId(Integer staffId) {
+        this.staffId = staffId;
     }
 }

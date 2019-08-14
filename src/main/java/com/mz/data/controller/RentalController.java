@@ -72,7 +72,7 @@ public class RentalController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Rental> search (@RequestBody RentalView rentalView){
+    public Pagination<RentalLoad> search (@RequestBody(required = false) RentalView rentalView){
         Rental rental =  mapper.map(rentalView ,Rental.class);
         Page<Rental> temps = rentalService.findAll(rentalView.getPage(), rentalView.getSize() , rental);
         List<Rental> listRentals = temps.getContent();

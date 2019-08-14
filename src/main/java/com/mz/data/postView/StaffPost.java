@@ -1,7 +1,5 @@
 package com.mz.data.postView;
 
-import com.mz.data.model.Address;
-import com.mz.data.model.Store;
 
 public class StaffPost {
 
@@ -9,9 +7,9 @@ public class StaffPost {
     private Integer id;
     private String fName;
     private String lName;
-    private Address address;
+    private Integer addressID;
+    private Integer storeId;
     private String email;
-    private Store store;
     private Integer active;
     private String userName;
     private String password;
@@ -40,12 +38,20 @@ public class StaffPost {
         this.lName = lName;
     }
 
-    public Address getAddress() {
-        return address;
+    public Integer getAddressID() {
+        return addressID;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressID(Integer addressID) {
+        this.addressID = addressID;
+    }
+
+    public Integer getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
     }
 
     public String getEmail() {
@@ -54,14 +60,6 @@ public class StaffPost {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
     }
 
     public Integer getActive() {

@@ -72,7 +72,7 @@ public class StoreController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Store> search (@RequestBody StoreView storeView){
+    public Pagination<StoreLoad> search (@RequestBody(required = false) StoreView storeView){
         Store store =  mapper.map(storeView ,Store.class);
         Page<Store> temps = storeService.findAll(storeView.getPage(), storeView.getSize() , store);
         List<Store> listStores = temps.getContent();
