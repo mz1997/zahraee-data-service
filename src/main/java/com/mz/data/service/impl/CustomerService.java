@@ -1,6 +1,7 @@
 package com.mz.data.service.impl;
 
 import com.mz.data.dao.CustomerRepository;
+import com.mz.data.dao.view.DaoCustomerView;
 import com.mz.data.model.Customer;
 import com.mz.data.service.GenericService;
 import com.mz.data.service.interfaces.ICustomerService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,8 +37,20 @@ public class CustomerService extends GenericService<Customer , Integer> implemen
         super.edit(entity);
     }
 
+
     @Override
-    public List<Customer> listCustomer(Integer countryId) {
-        return customerRepository.listCustomer(countryId);
+    public List<DaoCustomerView> listCustomer(Integer countryId) {
+        List<DaoCustomerView> retValues =  new ArrayList<DaoCustomerView>();
+        Object[] temps =  customerRepository.listCustomer(countryId);
+        for(Object obj : temps)
+        {
+            Object[] tem = (Object[])obj;
+            DaoCustomerView t = new DaoCustomerView();
+            t.setfName(tem[0].toString());
+            t.setlName(tem[1].toString());
+            retValues.add(t);
+
+        }
+        return retValues;
     }
 }

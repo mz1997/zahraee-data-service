@@ -1,6 +1,5 @@
 package com.mz.data.loadView;
 
-import com.mz.data.model.City;
 
 import java.util.Date;
 
@@ -10,7 +9,8 @@ public class AddressLoad {
     private String address;
     private String address2;
     private String district;
-    private City city;
+    private Integer cityId;
+    private Integer countryId;
     private Integer pCode;
     private Long phone;
     private Date lUpdate;
@@ -47,12 +47,12 @@ public class AddressLoad {
         this.district = district;
     }
 
-    public City getCity() {
-        return city;
+    public Integer getCityId() {
+        return cityId;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 
     public Integer getpCode() {
@@ -77,5 +77,13 @@ public class AddressLoad {
 
     public void setlUpdate(Date lUpdate) {
         this.lUpdate = lUpdate;
+    }
+
+    public Integer getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Integer countryId) {
+        this.countryId = countryId;
     }
 }

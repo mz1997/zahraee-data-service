@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer , Integer> {
 
-    @Query("select fName as first_name,lName from Customer where address.id in (select id from Address where city.id in(select id from City where country.id =:countryId ))")
-    List<Customer> listCustomer (@Param("countryId") Integer countryId);
+    @Query("select fName,lName from Customer where address.id in (select id from Address where city.id in(select id from City where country.id =:countryId ))")
+    Object[] listCustomer (@Param("countryId") Integer countryId);
 }

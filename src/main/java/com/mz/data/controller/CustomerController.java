@@ -1,6 +1,7 @@
 package com.mz.data.controller;
 
 
+import com.mz.data.dao.view.DaoCustomerView;
 import com.mz.data.loadView.CustomerLoad;
 import com.mz.data.model.Customer;
 import com.mz.data.model.Pagination;
@@ -93,7 +94,7 @@ public class CustomerController {
 
     //list customer haye keshvar x
     @RequestMapping(value = "/listCustomerCountry/{id}" , method = RequestMethod.GET)
-    public List<Customer> listCustomerCountry (@PathVariable Integer id){
+    public List<DaoCustomerView> listCustomerCountry (@PathVariable Integer id){
         return customerService.listCustomer(id);
     }
 

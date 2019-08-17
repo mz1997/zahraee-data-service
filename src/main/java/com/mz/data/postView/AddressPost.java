@@ -9,7 +9,8 @@ public class AddressPost {
     private String address;
     private String address2;
     private String district;
-    private City city;
+    private Integer cityId;
+    private Integer countryId;
     private Integer pCode;
     private Long phone;
 
@@ -45,12 +46,12 @@ public class AddressPost {
         this.district = district;
     }
 
-    public City getCity() {
-        return city;
+    public Integer getCityId() {
+        return cityId;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 
     public Integer getpCode() {
@@ -67,5 +68,13 @@ public class AddressPost {
 
     public void setPhone(Long phone) {
         this.phone = phone;
+    }
+
+    public Integer getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Integer countryId) {
+        this.countryId = countryId;
     }
 }

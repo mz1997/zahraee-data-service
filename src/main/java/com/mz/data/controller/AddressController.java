@@ -1,6 +1,7 @@
 package com.mz.data.controller;
 
 
+import com.mz.data.dao.view.DaoAddressView;
 import com.mz.data.loadView.AddressLoad;
 import com.mz.data.model.Address;
 import com.mz.data.model.Pagination;
@@ -72,7 +73,7 @@ public class AddressController {
 
     //search:
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public Pagination<Address> search(@RequestBody(required = false) AddressView addressView){
+    public Pagination<AddressLoad> search(@RequestBody(required = false) AddressView addressView){
         Address address = mapper.map(addressView ,Address.class);
         Page<Address> temps = addressService.findAll(addressView.getPage(), addressView.getSize() , address);
         List<Address> listAddress = temps.getContent();
@@ -93,7 +94,7 @@ public class AddressController {
 
     //list address haye keshvar x
     @RequestMapping(value = "/listAddressCountry/{id}" , method = RequestMethod.GET)
-    public List<Address> listAddressCountry (@PathVariable Integer id){
+    public List<DaoAddressView> listAddressCountry (@PathVariable Integer id){
         return addressService.listAddress(id);
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface AddressRepository extends JpaRepository<Address , Integer> {
 
-    @Query("from Address where city.id in(select id from City where country.id = :countryId) ")
-    List<Address> listAddress (@Param("countryId") Integer countryId);
+    @Query("select address,city.id,city.country.id,city.country.name,pCode,phone  from Address where city.id in(select id from City where country.id = :countryId) ")
+    Object[] listAddress (@Param("countryId") Integer countryId);
 
 }

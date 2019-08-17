@@ -1,7 +1,5 @@
 package com.mz.data.loadView;
 
-import com.mz.data.model.Address;
-import com.mz.data.model.Store;
 
 import java.util.Date;
 
