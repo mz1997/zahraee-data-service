@@ -1,6 +1,7 @@
 package com.mz.data.controller;
 
 
+import com.mz.data.dao.view.DaoPaymentView;
 import com.mz.data.loadView.PaymentLoad;
 import com.mz.data.model.Pagination;
 import com.mz.data.model.Payment;
@@ -89,6 +90,11 @@ public class PaymentController {
     {
         PaymentLoad retuenValue =   mapper.map(payment ,PaymentLoad.class);
         return retuenValue;
+    }
+
+    @RequestMapping(value = "/paymentByCustomerId/{id}" , method = RequestMethod.GET)
+    public List<DaoPaymentView> paymentByCustomerId (@PathVariable Integer id){
+        return paymentService.paymentByCustomerId(id);
     }
 
 }

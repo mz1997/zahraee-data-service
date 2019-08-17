@@ -91,4 +91,9 @@ public class ActorController {
         return retuenValue;
     }
 
+    @RequestMapping(value = "/listActors/{id}" , method = RequestMethod.GET)
+    public List<Actor> lists (){
+        return actorService.listActors();
+    }
+
 }

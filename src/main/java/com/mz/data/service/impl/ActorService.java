@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ActorService extends GenericService <Actor , Integer> implements IActorService {
@@ -31,5 +32,10 @@ public class ActorService extends GenericService <Actor , Integer> implements IA
     public void edit(Actor entity) {
         entity.setlUpdate(new Date());
         super.save(entity);
+    }
+
+    @Override
+    public List<Actor> listActors() {
+        return actorRepository.listActors();
     }
 }
