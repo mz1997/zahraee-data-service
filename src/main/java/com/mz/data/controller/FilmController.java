@@ -2,6 +2,7 @@ package com.mz.data.controller;
 
 
 
+import com.mz.data.dao.view.DaoFilmView;
 import com.mz.data.loadView.ActorLoad;
 import com.mz.data.loadView.FilmLoad;
 import com.mz.data.model.Actor;
@@ -95,4 +96,11 @@ public class FilmController {
         FilmLoad retuenValue =   mapper.map(film ,FilmLoad.class);
         return retuenValue;
     }
+
+    @RequestMapping(value = "/searchFilmByCategoryId/{id}" , method = RequestMethod.GET)
+    public List<DaoFilmView> filmCategory (@PathVariable Integer id){
+        return filmService.filmCategory(id);
+    }
+
+
 }
