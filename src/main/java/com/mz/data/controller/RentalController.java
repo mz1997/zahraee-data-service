@@ -1,6 +1,7 @@
 package com.mz.data.controller;
 
 
+import com.mz.data.dao.view.DaoRentalView;
 import com.mz.data.loadView.RentalLoad;
 import com.mz.data.model.Pagination;
 import com.mz.data.model.Rental;
@@ -90,4 +91,10 @@ public class RentalController {
         RentalLoad retuenValue =   mapper.map(rental ,RentalLoad.class);
         return retuenValue;
     }
+
+    @RequestMapping(value = "/rentalByCustomerId/{id}" , method = RequestMethod.GET)
+    public List<DaoRentalView> rentalByCustomerId (@PathVariable Integer id){
+        return rentalService.rentalByCustomerId(id);
+    }
+
 }
