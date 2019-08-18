@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FilmRepository extends JpaRepository<Film , Integer> {
 
-    @Query(value = "SELECT film_id,CAST(release_year AS SIGNED ),language_id,category_id,Category.name  FROM Film LEFT JOIN Category ON Category.Category_id = :categoryId " , nativeQuery =true)
+    @Query(value ="select film_id,title,CAST(release_year AS SIGNED ),language_id from film where film_id in (select film_id from film_category where category_id = :categoryId)" , nativeQuery =true)
     Object[] filmCategory (@Param("categoryId") Integer categoryId);
+
+    @Query(value = "select film_id,title,CAST(release_year AS SIGNED ),language_id from film where film_id in (select film_id from film_actor where actor_id in(select actor_id from actor where last_name like %:actorLastName%));",nativeQuery = true)
+    Object[] filmByActorName(@Param("actorLastName") String actorLastName);
 }

@@ -7,21 +7,19 @@ public class DaoFilmView {
 
     @JsonProperty(value = "Film ID")
     private Integer id;
+    @JsonProperty(value = "Film Title")
+    private String title;
     @JsonProperty(value = "Release Year")
     private Integer lYear;
     @JsonProperty(value = "Language ID")
     private Integer languageId;
-    @JsonProperty(value = "Category ID")
-    private Integer categoryId;
-    @JsonProperty(value = "Category Name")
-    private String categoryName;
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getId() {
@@ -46,13 +44,5 @@ public class DaoFilmView {
 
     public void setLanguageId(Integer languageId) {
         this.languageId = languageId;
-    }
-
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
     }
 }

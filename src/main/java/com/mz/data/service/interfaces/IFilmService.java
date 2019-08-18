@@ -8,4 +8,6 @@ import java.util.List;
 public interface IFilmService extends IGenericService <Film , Integer> {
 
     List<DaoFilmView> filmCategory (Integer categoryId);
+    List<DaoFilmView> filmByActorName (String actorLastName);
+
 }

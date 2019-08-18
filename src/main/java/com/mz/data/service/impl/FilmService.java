@@ -45,10 +45,27 @@ public class FilmService extends GenericService<Film , Integer> implements IFilm
             Object[] tem = (Object[]) ojb;
             DaoFilmView daoFilmView = new DaoFilmView();
             daoFilmView.setId(tem[0].hashCode());
-            daoFilmView.setlYear(tem[1].hashCode());
-            daoFilmView.setLanguageId(tem[2].hashCode());
-            daoFilmView.setCategoryId(tem[3].hashCode());
-            daoFilmView.setCategoryName(tem[4].toString());
+            daoFilmView.setTitle(tem[1].toString());
+            daoFilmView.setlYear(tem[2].hashCode());
+            daoFilmView.setLanguageId(tem[3].hashCode());
+            retValue.add(daoFilmView);
+        }
+
+        return retValue;
+    }
+
+    @Override
+    public List<DaoFilmView> filmByActorName(String actorLastName) {
+        List<DaoFilmView> retValue = new ArrayList<DaoFilmView>();
+        Object[] temp = filmRepository.filmByActorName(actorLastName);
+        for (Object ojb : temp){
+
+            Object[] tem = (Object[]) ojb;
+            DaoFilmView daoFilmView = new DaoFilmView();
+            daoFilmView.setId(tem[0].hashCode());
+            daoFilmView.setTitle(tem[1].toString());
+            daoFilmView.setlYear(tem[2].hashCode());
+            daoFilmView.setLanguageId(tem[3].hashCode());
             retValue.add(daoFilmView);
         }
 

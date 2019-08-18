@@ -102,5 +102,9 @@ public class FilmController {
         return filmService.filmCategory(id);
     }
 
+    @RequestMapping(value = "/searchFilmByActorLastName" , method = RequestMethod.POST)
+    public List<DaoFilmView> filmByActorName (@RequestBody String actorLastName){
+        return filmService.filmByActorName(actorLastName);
+    }
 
 }
