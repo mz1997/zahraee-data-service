@@ -1,13 +1,19 @@
 package com.mz.data.dao.view;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class DaoFilmView {
 
+    @JsonProperty(value = "Film ID")
     private Integer id;
+    @JsonProperty(value = "Release Year")
     private Integer lYear;
+    @JsonProperty(value = "Language ID")
     private Integer languageId;
+    @JsonProperty(value = "Category ID")
     private Integer categoryId;
+    @JsonProperty(value = "Category Name")
     private String categoryName;
 
     public String getCategoryName() {
