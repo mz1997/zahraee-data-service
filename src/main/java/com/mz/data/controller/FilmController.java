@@ -43,7 +43,7 @@ public class FilmController {
 
     //edit:
     @RequestMapping(value = "/edit", method = RequestMethod.PUT)
-    public void edit(@RequestBody FilmPost filmPost) {
+    public void edit(@RequestBody  FilmPost filmPost) {
         Film film = mapper.map(filmPost ,Film.class);
         if (filmPost.getId()== null){
             throw new RuntimeException();
@@ -103,7 +103,7 @@ public class FilmController {
     }
 
     @RequestMapping(value = "/searchFilmByActorLastName" , method = RequestMethod.POST)
-    public List<DaoFilmView> filmByActorName (@RequestBody String actorLastName){
+    public List<DaoFilmView> filmByActorName (@RequestParam("last name") String actorLastName){
         return filmService.filmByActorName(actorLastName);
     }
 
