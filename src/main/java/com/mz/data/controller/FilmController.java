@@ -3,15 +3,12 @@ package com.mz.data.controller;
 
 
 import com.mz.data.dao.view.DaoFilmView;
-import com.mz.data.loadView.ActorLoad;
+import com.mz.data.dao.view.DaoFilmViewHql;
 import com.mz.data.loadView.FilmLoad;
-import com.mz.data.model.Actor;
 import com.mz.data.model.Film;
 import com.mz.data.model.Pagination;
-import com.mz.data.postView.ActorPost;
 import com.mz.data.postView.FilmPost;
 import com.mz.data.service.interfaces.IFilmService;
-import com.mz.data.view.ActorView;
 import com.mz.data.view.FilmView;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +102,11 @@ public class FilmController {
     @RequestMapping(value = "/searchFilmByActorLastName" , method = RequestMethod.POST)
     public List<DaoFilmView> filmByActorName (@RequestParam("last name") String actorLastName){
         return filmService.filmByActorName(actorLastName);
+    }
+
+    @RequestMapping(value = "/searchFilmByCategoryIdHql/{id}" , method = RequestMethod.GET)
+    public List<DaoFilmViewHql> searchFilmByCategoryIdHql (@PathVariable Integer id){
+        return filmService.searchFilmByCategoryIdHql(id);
     }
 
 }

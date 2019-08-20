@@ -14,4 +14,7 @@ public interface FilmRepository extends JpaRepository<Film , Integer> {
 
     @Query(value = "select film_id,title,CAST(release_year AS SIGNED ),language_id from film where film_id in (select film_id from film_actor where actor_id in(select actor_id from actor where last_name like %:actorLastName%));",nativeQuery = true)
     Object[] filmByActorName(@Param("actorLastName") String actorLastName);
+
+    @Query("select f.id,f.title,f.lYear,f.language.id,f.length,c.id,c.name from Film f join f.categories c where c.id = :categoryId")
+    Object[] searchFilmByCategoryIdHql (@Param("categoryId") Integer categoryId);
 }
