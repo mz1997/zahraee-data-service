@@ -3,6 +3,7 @@ package com.mz.data.controller;
 
 
 import com.mz.data.dao.view.DaoFilmView;
+import com.mz.data.dao.view.DaoFilmViewActorHql;
 import com.mz.data.dao.view.DaoFilmViewHql;
 import com.mz.data.loadView.FilmLoad;
 import com.mz.data.model.Film;
@@ -107,6 +108,11 @@ public class FilmController {
     @RequestMapping(value = "/searchFilmByCategoryIdHql/{id}" , method = RequestMethod.GET)
     public List<DaoFilmViewHql> searchFilmByCategoryIdHql (@PathVariable Integer id){
         return filmService.searchFilmByCategoryIdHql(id);
+    }
+
+    @RequestMapping(value = "searchFilmByActorLastNameHql" , method = RequestMethod.POST)
+    public List<DaoFilmViewActorHql> searchFilmByActorLastNameHql (@RequestParam("last name") String actorLastName){
+        return filmService.searchFilmByActorLastNameHql(actorLastName);
     }
 
 }

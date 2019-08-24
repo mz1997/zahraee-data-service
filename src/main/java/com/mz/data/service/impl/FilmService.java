@@ -2,6 +2,7 @@ package com.mz.data.service.impl;
 
 import com.mz.data.dao.FilmRepository;
 import com.mz.data.dao.view.DaoFilmView;
+import com.mz.data.dao.view.DaoFilmViewActorHql;
 import com.mz.data.dao.view.DaoFilmViewHql;
 import com.mz.data.model.Film;
 import com.mz.data.service.GenericService;
@@ -89,6 +90,29 @@ public class FilmService extends GenericService<Film , Integer> implements IFilm
             daoFilmViewHql.setCategoryId(tem[5].hashCode());
             daoFilmViewHql.setCategoryName(tem[6].toString());
             retValue.add(daoFilmViewHql);
+        }
+
+        return retValue;
+    }
+
+    @Override
+    public List<DaoFilmViewActorHql> searchFilmByActorLastNameHql(String actorLastName) {
+        List<DaoFilmViewActorHql> retValue = new ArrayList<DaoFilmViewActorHql>();
+        Object[] temp = filmRepository.searchFilmByActorLastNameHql(actorLastName);
+        for (Object ojb : temp){
+
+            Object[] tem = (Object[]) ojb;
+            DaoFilmViewActorHql daoFilmViewActorHql = new DaoFilmViewActorHql();
+            daoFilmViewActorHql.setId(tem[0].hashCode());
+            daoFilmViewActorHql.setTitle(tem[1].toString());
+            daoFilmViewActorHql.setlYear(tem[2].hashCode());
+            daoFilmViewActorHql.setLanguageId(tem[3].hashCode());
+            daoFilmViewActorHql.setLength(tem[4].hashCode());
+            daoFilmViewActorHql.setActorId(tem[5].hashCode());
+            daoFilmViewActorHql.setActorFName(tem[6].toString());
+            daoFilmViewActorHql.setActorLName(tem[7].toString());
+            retValue.add(daoFilmViewActorHql);
+
         }
 
         return retValue;
